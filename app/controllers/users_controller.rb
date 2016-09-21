@@ -12,6 +12,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      log_in @user
       # redirect to the newly created user profile
       # flash is a hash {key: value}
       flash[:success] = "Welcome to the Sample App!"
